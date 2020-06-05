@@ -1,9 +1,9 @@
 function addEvent(el, evnt, funct){
 	if(el === null || el === undefined){return;}
-	if (el.attachEvent)
-		return el.attachEvent('on'+evnt, funct);
-	else
-		return el.addEventListener(evnt, funct, false);
+	if (el.attachEvent){
+    return el.attachEvent('on'+evnt, funct);
+  }
+  return el.addEventListener(evnt, funct, false);
 }
 
 
@@ -11,8 +11,7 @@ function addEvent(el, evnt, funct){
 function recreateNode(el, withChildren) {
   if (withChildren) {
     el.parentNode.replaceChild(el.cloneNode(true), el);
-  }
-  else {
+  }else{
     var newEl = el.cloneNode(false);
     while (el.hasChildNodes()) newEl.appendChild(el.firstChild);
     el.parentNode.replaceChild(newEl, el);
