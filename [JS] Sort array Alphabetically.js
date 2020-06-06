@@ -1,22 +1,21 @@
-/**
-* sortArrayAlpha
-*	
-*/
-function sortArrayAlpha(arr, key){
-	arr.sort(function(a, b){
+function ObjectArray(arr){
+	this.array = arr === undefined ? new Array() : arr;
+}
+ObjectArray.prototype.Sort = function(key){
+	key = key === undefined ? Object.keys(arr)[0] : key;
+	this.array = this.array.sort(function(a, b){
 		if(a[key] < b[key]) return -1;
 		if(a[key] > b[key]) return 1;
 		return 0;
 	});
-	return arr;
+	return this.array;
 }
-/**
-* Example
-*	
-*/
-var t1 = [{property: "c"}, {property: "b"}, {property: "a"}];
-var t2 = [{property: "c"}, {property: "b"}, {property: "a"}];
 
-//console the 2 arrays
+//Example
+var t1 = [{property: "c"}, {property: "b"}, {property: "a"}];
+var t2 = new ObjectArray(t1);
+var t3 = new ObjectArray(t1);
+
 console.log(t1);
-console.log(sortArrayAlpha(t2,"property"));
+console.log(t2.Sort());
+console.log(t3.Sort("property"));

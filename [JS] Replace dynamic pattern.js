@@ -1,7 +1,4 @@
-function patternReplace(text, key, value){
-	var regExp = new RegExp(key, "g");
-	return text.replace(regExp, value);	
+function RegReplace(text, key, value,options){
+	options = options === undefined ? "g" : options;
+	text.replace(new RegExp(key, options), value);
 }
-
-var regExp = new RegExp(myString, "g");
-text.replace(regExp, '');

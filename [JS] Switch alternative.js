@@ -28,7 +28,7 @@ collection.forEach(function(item){
 	}
 });
 
-// switch alternative with arrow functions
+// switch alternative with fat arrow functions
 var condition = 1;
 var collection = new Array();
 collection.push({condition: 1, log: => console.log("one")});

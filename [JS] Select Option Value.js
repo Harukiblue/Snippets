@@ -1,11 +1,14 @@
-function GetSelectedValue(sel){
-	return sel.options[sel.selectedIndex].value;
+function Select(id){
+	this.id = id;
+	this.elem = document.getElementById(id);
 }
-
-function SelectByValue(sel, val){
-	for(var i = 0; i < sel.options.length; i++){
-		if(sel.options[i].innerHTML == val){
-			sel.selectedIndex = i;
+Select.prototype.GetValue = function(){
+	return this.elem.options[this.elem.selectedIndex].value;
+}
+Select.prototype.SetValue = function(value){
+	for(var i = 0; i < this.elem.options.length; i++){
+		if(this.elem.options[i].innerHTML === value || this.elem.options[i].value === value){
+			this.elem.selectedIndex = i;
 		}
 	}
 }

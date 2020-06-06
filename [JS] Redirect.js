@@ -1,1 +1,1 @@
-window.location = "http://www.yoururl.com";
+window.location = "https://www.brenniencoker.com";

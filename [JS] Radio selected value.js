@@ -1,26 +1,30 @@
-function GetSelectedRadioValue(name){
-	var options = document.getElementsByName(name);
-	for(var i =0; i < options.length; i++){
-		if(options[i].checked == true){
-			return options[i].value;
+function Radio(name){
+	this.name = name;
+	this.options = document.getElementsByName(name);
+}
+Radio.prototype.GetValue = function(){
+	for(var i =0; i < this.options.length; i++){
+		var option = this.options[i];
+		if(option.checked === true){
+			return options.value;
 		}
 	}
 	return null;
 }
-function GetSelectedRadioIndex(name){
-	var options = document.getElementsByName(name);
-	for(var i =0; i < options.length; i++){
-		if(options[i].checked == true){
+Radio.prototype.GetIndex = function(){
+	for(var i =0; i < this.options.length; i++){
+		var option = this.options[i];
+		if(option.checked === true){
 			return i;
 		}
 	}
 	return null;
 }
-function GetSelectedRadio(name){
-	var options = document.getElementsByName(name);
-	for(var i =0; i < options.length; i++){
-		if(options[i].checked == true){
-			return options[i];
+Radio.prototype.GetOption = function(){
+	for(var i =0; i < this.options.length; i++){
+		var option = this.options[i];
+		if(option.checked === true){
+			return option;
 		}
 	}
 	return null;
