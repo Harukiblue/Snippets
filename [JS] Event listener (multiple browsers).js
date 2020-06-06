@@ -1,7 +1,11 @@
-function addEvent(el, evnt, funct){
-	if(el === null || el === undefined){return;}
-	if (el.attachEvent){
-    return el.attachEvent('on'+evnt, funct);
+function addEvent(elem, evnt, funct){
+	if(elem === null || elem === undefined){return;}
+	if (elem.attachEvent){
+    return elem.attachEvent('on'+evnt, funct);
   }
-  return el.addEventListener(evnt, funct, false);
+  return elem.addEventListener(evnt, funct, false);
 }
+
+addEvent(document.getElementById("elem"), "click", function(e){
+  var target = e.srcElement || e.target;  
+});

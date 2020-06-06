@@ -1,11 +1,16 @@
-<script> 
 /* place this in the parent page's top.js (or equivelant). 
 The child will send messages to the parent, and the parent 
 will switch the messages to conditionaly choose what to do 
 based on the message recieved. */
-window.addEventListener("message", function(event) {
-		note(event.data);
-	IFRAMEMessageProcessor(event.data);
+function addEvent(elem, evnt, funct){
+	if(elem === null || elem === undefined){return;}
+	if (elem.attachEvent){
+	return elem.attachEvent('on'+evnt, funct);
+  }
+  return elem.addEventListener(evnt, funct, false);
+}
+addEvent(window,"message", function(e) {
+	IFRAMEMessageProcessor(e.data);
 });
 function IFRAMEMessageProcessor(data){
     switch(data){
@@ -20,9 +25,5 @@ function IFRAMEMessageProcessor(data){
 		break;
 	}
 }
-</script> 
-
-<script> 
 /* place this in the child page. The "MESSAGE TO SEND" is what the parent will recieve. */
-	parent.postMessage("MESSAGE TO SEND", "*");
-</script>
+parent.postMessage("MESSAGE TO SEND", "*");

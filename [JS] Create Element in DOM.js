@@ -15,7 +15,7 @@ DOMModifier.prototype.Select = function(s, i){
 	this.selectedElem =  this.hasSelected ? this.selected[this.selectedIndex] : document;
 	return this;
 }
-DOMModifier.prototype.add = function(obj){
+DOMModifier.prototype.Add = function(obj){
 	if(obj === undefined){return;}
 	if(obj.tag === undefined){return;}
 	if(obj.par === undefined && this.hasSelected ){obj.par = this.selectedElem;}
@@ -31,7 +31,7 @@ DOMModifier.prototype.add = function(obj){
 	
 	par.appendChild(elem);
 }
-DOMModifier.prototype.remove = function(elem){
+DOMModifier.prototype.Remove = function(elem){
 	if(typeof(elem) === "string"){this.Select(elem); elem = undefined;}
 	if(elem === undefined && this.hasSelected ){elem = this.selectedElem;}
 	if(elem === undefined && !this.hasSelected ){return;}
@@ -45,14 +45,14 @@ var DM = new DOMModifier();
 var $ = DM.Select.bind(DM);
 /* 
 //Create element
-	$(".item").add({
+	$(".item").Add({
 		tag: "TEXTAREA",
 		id: "test1",
 		clss: "test",
 		value: "P",
 		innerHTML: "THIS IS A TEST",
 	});
-	$(".item").add({
+	$(".item").Add({
 		tag: "INPUT",
 		id: "test2",
 		clss: "test",
@@ -62,5 +62,5 @@ var $ = DM.Select.bind(DM);
 */
 /*
 //remove
-	$(".item").remove();
+	$(".item").Remove();
 */

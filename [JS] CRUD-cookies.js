@@ -21,7 +21,7 @@ var cookies = {
 	update: function(name,value,days) {
 		cookies.create(name,value,days);
 	},
-	erase: function(name) {
+	remove: function(name) {
 		cookies.create(name,"",-1);
 	}
 };
