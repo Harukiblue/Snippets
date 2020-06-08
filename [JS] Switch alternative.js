@@ -40,3 +40,28 @@ collection.forEach((item) => {
 		item.log();
 	}
 });
+
+// Swtich class to handle switch statements with object oriented apporach
+function Switch(){
+	this.collection = new Array();
+}
+Switch.prototype.Add = function(condition, callback){
+	this.collection.push({_condition:  condition, _callback: callback});
+}
+Switch.prototype.DoIf = function(condition){
+	for(var i = 0; i < this.collection.length; i++){
+		if(this.collection[i]._condition === condition) return this.collection[i].callback();
+	}
+	return null;
+}
+
+/**
+ * Example
+ */
+var condition = 1;
+var handleCase = new Switch();
+handleCase.Add(1, function(){console.log("one");});
+handleCase.Add(2, function(){console.log("two");});
+handleCase.Add(3, function(){console.log("three");});
+handleCase.Add(4, function(){console.log("four");});
+var results = handleCase.DoIf(condition);
