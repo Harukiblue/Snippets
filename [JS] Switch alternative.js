@@ -65,3 +65,13 @@ handleCase.Add(2, function(){console.log("two");});
 handleCase.Add(3, function(){console.log("three");});
 handleCase.Add(4, function(){console.log("four");});
 var results = handleCase.DoIf(condition);
+/**
+ * Example with fat arrows
+ */
+var condition = 1;
+var handleCase = new Switch();
+handleCase.Add(1,()=> console.log("one"));
+handleCase.Add(2,()=> console.log("two"));
+handleCase.Add(3,()=> console.log("three"));
+handleCase.Add(4,()=> console.log("four"));
+var results = handleCase.DoIf(condition);
