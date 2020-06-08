@@ -1,4 +1,4 @@
-function RegReplace(text, key, value,options){
+function RegReplace(text, pattern, value,options){
 	options = options === undefined ? "g" : options;
-	text.replace(new RegExp(key, options), value);
+	text.replace(new RegExp(pattern, options), value);
 }
