@@ -31,10 +31,10 @@ collection.forEach(function(item){
 // switch alternative with fat arrow functions
 var condition = 1;
 var collection = new Array();
-collection.push({condition: 1, log: => console.log("one")});
-collection.push({condition: 2, log: => console.log("two")});
-collection.push({condition: 3, log: => console.log("three")});
-collection.push({condition: 4, log: => console.log("four")});
+collection.push({condition: 1, log:()=> console.log("one")});
+collection.push({condition: 2, log:()=> console.log("two")});
+collection.push({condition: 3, log:()=> console.log("three")});
+collection.push({condition: 4, log:()=> console.log("four")});
 collection.forEach((item) => {
 	if(item.condition === condition){
 		item.log();
